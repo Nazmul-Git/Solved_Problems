@@ -4,6 +4,7 @@ var isPalindrome = function(x) {
     let l = 0, r = strArr.length - 1;
 
     while (l < r) {
+        // reverse
         let temp = strArr[l];
         strArr[l] = strArr[r];
         strArr[r] = temp;

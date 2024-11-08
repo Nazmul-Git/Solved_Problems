@@ -44,4 +44,4 @@ const reverseNumber= function(x){
     }
     return reversedNum;
 };
-console.log(reverseNumber(-321));
+console.log(reverseNumber(-3210));

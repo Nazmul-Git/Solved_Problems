@@ -23,16 +23,19 @@ Output: 2
 
 
 const jump = function (nums) {
-    let maxJump = 0;
-    for (let i = 0; i < nums.length; i++) {
-        maxJump = nums[i];
-        if (i <= maxJump) {
-            if (i + nums[maxJump] === nums.length-1) {
-                return maxJump;
-            }
-            i++;
+    let jump = 0;
+    let maxPossibleJump = 0;
+    let currPossibleJump = 0;
+
+    for (let i = 0; i < nums.length-1; i++) {
+        maxPossibleJump = Math.max(maxPossibleJump, i + nums[i]);
+        if (i === currPossibleJump) {
+            jump++;
+            currPossibleJump = maxPossibleJump;  // Update the end of the current jump range
+
+            if (currPossibleJump >= nums.length-1) return jump;
         }
     }
-    return maxJump;
+    return jump;
 };
 console.log(jump([2, 3, 1, 1, 4]));

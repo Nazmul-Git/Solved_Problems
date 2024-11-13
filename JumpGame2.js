@@ -23,17 +23,16 @@ Output: 2
 
 
 const jump = function (nums) {
-    let initialJump = 0;
-    let i = 0;
-    let n = nums.length;
-
-    while (i >= n) {
-        for (let j = 0; j < n; j += nums[i]) {
-            initialJump++;
-            if (j === n - 1) break;
+    let maxJump = 0;
+    for (let i = 0; i < nums.length; i++) {
+        maxJump = nums[i];
+        if (i <= maxJump) {
+            if (i + nums[maxJump] === nums.length-1) {
+                return maxJump;
+            }
+            i++;
         }
-        i++;
     }
-    return initialJump;
+    return maxJump;
 };
 console.log(jump([2, 3, 1, 1, 4]));
